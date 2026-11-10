@@ -5,30 +5,15 @@ import { User } from "../types";
 export function verifyUser(user: User | null | undefined): User | string[] {
     // TODO: Implement logic to check for missing properties and return either the user object or an array of missing properties
     const out: string[]=[]
-    if (!user) {
-        return ["userData","id","name","address","street","city"]
+    const exist: boolean[] = [!user, !user?.id, !user?.name, !user?.address, !user?.address?.street, !user?.address?.city]
+    const needed: string[]=["userData","id","name","address","street","city"]
+    for (var i=0; i<6;i++) {
+        if (exist[i]) {
+            out.push(needed[i])
+        } 
     }
-    if (!user.address) {
-        out.push(...["address","street","city"])
-    }
-    else if (!user.address.street) {
-        out.push("street")
-    }
-    else if (!user.address.city) {
-        out.push("city")
-    }
-    if (!user.id) {
-        out.push("id")
-    }
-    if (!user.name) {
-        out.push("name")
-    }
-    if (out.length>0) {
-        return out
-    }
-    else {
-        return user
-    }
+    return (out.length==0) ? user : out
 }
+
 export default verifyUser
 
