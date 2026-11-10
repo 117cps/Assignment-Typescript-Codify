@@ -4,6 +4,13 @@
 
 function countOccurrences<T>(arr: T[], item: T): number {
     // TODO: Implement logic to count occurrences of item in arr
-    return 0; // Placeholder return statement
+    var num: number = 0;
+    for (const i of arr) {
+        if (i===item) {
+            num+=1
+        }
+    }
+    return num
 }
 
+export default countOccurrences

@@ -6,8 +6,7 @@
 
 // Function that takes two numbers, converts them to strings, and concatenates them
 export function concatNumbers(num1: number, num2: number): string {
-    // TODO: Implement logic to concatenate the numbers as strings
-    return ""; // Placeholder return statement
+    return num1.toString()+num2.toString()
 }
 
-//export default concatNumbers; // Uncomment this line when done writing the function
+export default concatNumbers; // Uncomment this line when done writing the function
